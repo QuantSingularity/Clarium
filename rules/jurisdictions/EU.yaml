@@ -1,0 +1,51 @@
+# ─── European Union - Clarium Jurisdiction Rules (6AMLD) ─────────────────────
+jurisdiction: EU
+effective_date: "2024-01-01"
+last_updated: "2024-09-01"
+authority: "EBA / FATF / National Supervisors"
+
+transaction_limits:
+  max_single_transaction: 45000 # EUR - 5AMLD threshold
+  daily_aggregate_limit: 100000 # EUR
+  cash_reporting_threshold: 10000 # EUR - 6AMLD
+  crypto_transaction_limit: 1000 # EUR - MiCA / Travel Rule
+
+age_gate:
+  minimum_age: 18
+
+kyc_tiers:
+  - level: basic
+    threshold: 0
+    requirements: [name_verification, date_of_birth]
+  - level: standard
+    threshold: 1000
+    requirements:
+      [name_verification, date_of_birth, government_id, address_verification]
+  - level: enhanced
+    threshold: 15000
+    requirements:
+      [
+        name_verification,
+        date_of_birth,
+        government_id,
+        address_verification,
+        source_of_funds,
+        enhanced_due_diligence,
+      ]
+
+required_disclosures:
+  - "Regulated under EU Anti-Money Laundering Directives (AMLD 5 & 6)."
+  - "Data processed under GDPR. You have rights to access, rectify, and erase your data."
+  - "Suspicious transactions are reported to national Financial Intelligence Units (FIUs)."
+  - "Crypto asset transfers are subject to the Travel Rule (FATF Recommendation 16)."
+
+aml_rules:
+  sar_threshold: 5000
+  structuring_detection: true
+  pep_enhanced_due_diligence: true
+  beneficial_ownership_check: true
+  crypto_travel_rule_threshold: 1000
+
+geographic_restrictions:
+  blocked_countries: [KP, IR, SY]
+  high_risk_countries: [AF, IQ, LY, SO, SD, YE, MM, BY]

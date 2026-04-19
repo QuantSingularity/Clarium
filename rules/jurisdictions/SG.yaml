@@ -1,0 +1,51 @@
+# ─── Singapore - Clarium Jurisdiction Rules ───────────────────────────────────
+jurisdiction: SG
+effective_date: "2024-01-01"
+last_updated: "2024-08-01"
+authority: "MAS (Monetary Authority of Singapore)"
+
+transaction_limits:
+  max_single_transaction: 50000 # SGD
+  daily_aggregate_limit: 200000 # SGD
+  cash_reporting_threshold: 20000 # SGD - CDSA threshold
+  international_wire_limit: 30000 # SGD
+
+age_gate:
+  minimum_age: 18
+  gambling_minimum_age: 21
+
+kyc_tiers:
+  - level: basic
+    threshold: 0
+    requirements: [name_verification, date_of_birth, singpass_myinfo]
+  - level: standard
+    threshold: 5000
+    requirements:
+      [name_verification, date_of_birth, nric_or_passport, address_verification]
+  - level: enhanced
+    threshold: 20000
+    requirements:
+      [
+        name_verification,
+        date_of_birth,
+        nric_or_passport,
+        address_verification,
+        source_of_funds,
+        mas_cdd,
+      ]
+
+required_disclosures:
+  - "Regulated by the Monetary Authority of Singapore (MAS)."
+  - "Compliant with the Corruption, Drug Trafficking and Other Serious Crimes Act (CDSA)."
+  - "MAS Notice on Prevention of Money Laundering applies."
+  - "Data protected under the Personal Data Protection Act (PDPA) 2012."
+
+aml_rules:
+  sar_threshold: 5000
+  structuring_detection: true
+  pep_enhanced_due_diligence: true
+  mas_notice_cdd: true
+
+geographic_restrictions:
+  blocked_countries: [KP, IR]
+  high_risk_countries: [AF, MM, SD, SY, YE]

@@ -1,0 +1,63 @@
+# ─── United States - Clarium Jurisdiction Rules ───────────────────────────────
+jurisdiction: US
+effective_date: "2024-01-01"
+last_updated: "2024-11-01"
+authority: "FinCEN / OFAC / SEC"
+
+transaction_limits:
+  max_single_transaction: 50000 # USD - triggers enhanced KYC
+  daily_aggregate_limit: 100000 # USD - triggers SAR filing
+  cash_reporting_threshold: 10000 # BSA CTR requirement
+  international_wire_limit: 25000 # requires additional docs
+
+age_gate:
+  minimum_age: 18
+  gambling_minimum_age: 21
+  alcohol_minimum_age: 21
+
+kyc_tiers:
+  - level: basic
+    threshold: 0
+    requirements:
+      - name_verification
+      - date_of_birth
+  - level: standard
+    threshold: 1000
+    requirements:
+      - name_verification
+      - date_of_birth
+      - government_id
+      - address_verification
+  - level: enhanced
+    threshold: 10000
+    requirements:
+      - name_verification
+      - date_of_birth
+      - government_id
+      - address_verification
+      - source_of_funds
+      - enhanced_due_diligence
+  - level: institutional
+    threshold: 100000
+    requirements:
+      - all_enhanced_requirements
+      - beneficial_ownership
+      - business_verification
+      - annual_review
+
+required_disclosures:
+  - "This service is regulated under the Bank Secrecy Act (BSA)."
+  - "Transactions above $10,000 are reported to FinCEN."
+  - "OFAC screening is performed on all transactions."
+  - "Your information may be shared with law enforcement when required by law."
+
+aml_rules:
+  sar_threshold: 5000 # Suspicious Activity Report filing threshold
+  ctr_threshold: 10000 # Currency Transaction Report threshold
+  structuring_detection: true # Detect smurfing / structuring
+  pep_enhanced_due_diligence: true
+
+geographic_restrictions:
+  blocked_countries: [KP, IR, SY, CU]
+  high_risk_countries: [AF, IQ, LY, SO, SD, YE]
+  enhanced_monitoring: [RU, CN, VE, MM]

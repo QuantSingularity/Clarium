@@ -1,0 +1,67 @@
+# ─── United Kingdom - Clarium Jurisdiction Rules ──────────────────────────────
+jurisdiction: GB
+effective_date: "2024-01-01"
+last_updated: "2024-10-01"
+authority: "FCA / HMRC / NCA"
+
+transaction_limits:
+  max_single_transaction: 40000 # GBP
+  daily_aggregate_limit: 85000 # GBP - FCA payment institution limit
+  cash_reporting_threshold: 7500 # GBP - HMRC threshold
+  international_wire_limit: 20000 # GBP - enhanced checks required
+
+age_gate:
+  minimum_age: 18
+  gambling_minimum_age: 18
+  alcohol_minimum_age: 18
+
+kyc_tiers:
+  - level: basic
+    threshold: 0
+    requirements:
+      - name_verification
+      - date_of_birth
+  - level: standard
+    threshold: 1000
+    requirements:
+      - name_verification
+      - date_of_birth
+      - government_id
+      - proof_of_address
+  - level: enhanced
+    threshold: 10000
+    requirements:
+      - name_verification
+      - date_of_birth
+      - government_id
+      - proof_of_address
+      - source_of_funds
+      - pep_screening
+  - level: institutional
+    threshold: 75000
+    requirements:
+      - all_enhanced_requirements
+      - beneficial_ownership_register
+      - companies_house_verification
+
+required_disclosures:
+  - "Regulated by the Financial Conduct Authority (FCA)."
+  - "Proceeds of Crime Act 2002 (POCA) compliance applies."
+  - "Suspicious transactions are reported to the National Crime Agency (NCA)."
+  - "Your data is processed in accordance with UK GDPR."
+  - "You have the right to access data held about you under the DPA 2018."
+
+aml_rules:
+  sar_threshold: 3000 # GBP - Suspicious Activity Report
+  structuring_detection: true
+  pep_enhanced_due_diligence: true
+  sanctions_screening: true # OFSI sanctions list
+
+geographic_restrictions:
+  blocked_countries: [KP, IR, SY, BY, RU]
+  high_risk_countries: [AF, IQ, LY, SO, SD, YE, VE]
+  enhanced_monitoring: [CN, PK, NG, EG]
+
+data_retention:
+  kyc_records_years: 5 # Post-relationship end
+  transaction_records_years: 5

@@ -1,0 +1,59 @@
+# ─── United Arab Emirates - Clarium Jurisdiction Rules ────────────────────────
+jurisdiction: AE
+effective_date: "2024-01-01"
+last_updated: "2024-07-01"
+authority: "CBUAE / FSRA / DFSA"
+
+transaction_limits:
+  max_single_transaction: 150000 # AED
+  daily_aggregate_limit: 500000 # AED
+  cash_reporting_threshold: 55000 # AED - CBUAE threshold (~$15,000 USD)
+  international_wire_limit: 100000 # AED
+
+age_gate:
+  minimum_age: 18
+
+kyc_tiers:
+  - level: basic
+    threshold: 0
+    requirements: [name_verification, emirates_id_or_passport]
+  - level: standard
+    threshold: 10000
+    requirements:
+      [
+        name_verification,
+        emirates_id_or_passport,
+        address_verification,
+        uae_residence_visa,
+      ]
+  - level: enhanced
+    threshold: 55000
+    requirements:
+      [
+        name_verification,
+        emirates_id_or_passport,
+        address_verification,
+        source_of_funds,
+        enhanced_due_diligence,
+        goaml_filing,
+      ]
+
+required_disclosures:
+  - "Regulated by the Central Bank of the UAE (CBUAE)."
+  - "AML/CFT compliance required under UAE Federal Decree-Law No. 20 of 2018."
+  - "Suspicious transactions reported via goAML platform to CBUAE FIU."
+  - "Virtual asset transactions subject to VARA regulations."
+  - "Real estate transactions above AED 55,000 require UBO disclosure."
+
+aml_rules:
+  sar_threshold: 10000
+  structuring_detection: true
+  pep_enhanced_due_diligence: true
+  goaml_reporting: true
+  real_estate_monitoring: true # High-risk sector in UAE
+  gold_trading_monitoring: true
+
+geographic_restrictions:
+  blocked_countries: [IL, KP, IR] # Note: IL due to regional restrictions
+  high_risk_countries: [AF, IQ, LY, SO, SD, YE, SY]
+  enhanced_monitoring: [PK, AF, NG]
