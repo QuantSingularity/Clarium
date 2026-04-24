@@ -2,7 +2,6 @@
 
 ## RegTech Compliance Module
 
-> **Standalone compliance infrastructure for the Abrar Ahmed Fintech Suite.**
 > KYC pipeline, AML transaction monitoring, immutable audit trail,
 > jurisdiction rule engine, webhook notifications, and a React admin dashboard.
 
@@ -47,8 +46,8 @@
 ### 1. Configure
 
 ```bash
-git clone https://github.com/abrar/clarium.git
-cd clarium
+git clone https://github.com/quantsingularity/Clarium
+cd Clarium
 cp .env.example .env
 # Defaults work out of the box
 ```
@@ -309,7 +308,7 @@ pytest tests/ -v
 ## Folder Structure
 
 ```
-clarium/
+Clarium/
 ├── Makefile
 ├── docker-compose.yml
 ├── .env.example
